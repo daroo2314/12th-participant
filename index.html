@@ -1,558 +1,4 @@
 <!-- ===============================
-    CSS 영역 (CSS Section)
-================================== -->
-<style>
-    /* ===== 구글 폰트 ===== */
-    @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap');
-
-    /* ===== Body 기본 스타일 ===== */
-    body {
-        min-height: 100vh;
-        margin: 0;
-        padding: 0;
-        font-family: 'Noto Sans KR', 'Nanum Gothic', 'Segoe UI', Tahoma, Geneva, Verdana, Arial, sans-serif;
-        background: linear-gradient(135deg,rgba(208,187,213,0.704) 0%, rgba(187,173,202,0.76) 20%, #f6f6fc50 100%);
-        background-attachment: fixed;
-        position: relative;
-    }
-    body::before {
-        content: '';
-        position: fixed;
-        inset: 0;
-        z-index: -1;
-        background: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fb2aeWG%2FdJMcaajhCCb%2FAAAAAAAAAAAAAAAAAAAAAM1wTGTi0jH_-EdFLVLZq0IG4TwIPhFfjE0QTJX5XU_3%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1764514799%26allow_ip%3D%26allow_referer%3D%26signature%3Da3lg8wUVU3nKNQt%252FMOyihn9%252B%252Bvo%253D') center top/cover no-repeat;
-        opacity: 0.5;
-        pointer-events: none;
-    }
-
-    /* ===== 메인 컨테이너 ===== */
-    .container {
-        max-width: 1080px;
-        margin: 54px auto 44px auto;
-        border-radius: 22px;
-        box-shadow: 0 6px 48px 0 rgba(81, 36, 78, 0.13), 0 0.5px 2px rgba(0,0,0,0.04);
-        background: rgba(255,255,255, 0.752);
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        min-height: 92vh;
-    }
-
-    /* ===== 헤더 영역 ===== */
-    .header {
-        width: 100%;
-        min-height: 270px;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        background: none;
-    }
-    .header-bg-image {
-        position: absolute;
-        inset: 0;
-        z-index: 0;
-        background: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fb2aeWG%2FdJMcaajhCCb%2FAAAAAAAAAAAAAAAAAAAAAM1wTGTi0jH_-EdFLVLZq0IG4TwIPhFfjE0QTJX5XU_3%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1764514799%26allow_ip%3D%26allow_referer%3D%26signature%3Da3lg8wUVU3nKNQt%252FMOyihn9%252B%252Bvo%253D') center 45%/cover no-repeat;
-        opacity: 0.7;
-        pointer-events: none;
-    }
-    .header::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(135deg,rgba(68,53,80,0.408) 35%,rgba(181,171,206,0.304) 100%);
-        z-index: 1;
-    }
-    .header-content {
-        width: 100%;
-        z-index: 2;
-        position: relative;
-        padding: 56px 22px 44px 22px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-end;
-        background: rgba(55, 13, 88, 0.438);
-    }
-    .header-content h1,
-    .header-content .main-title {
-        font-size: 2.56rem !important;
-    }
-    .header-logo {
-        width: 125px;
-        height: 70px;
-        border-radius: 12px;
-        margin-bottom: 8px;
-        box-shadow: 0 8px 28px 0 rgba(68,53,80,0.08), 0 1px 3px #b99acb24;
-        object-fit: cover;
-    }
-    .header h1 {
-        font-size: 2.7rem;
-        font-weight: 700;
-        letter-spacing: 0.04em;
-        color: #fff;
-        margin-bottom: 12px;
-        text-shadow: 0 3px 18px rgba(90,62,104,0.22), 0 2px 12px rgba(169,123,206,0.10);
-        font-family: 'Noto Sans KR', 'Nanum Gothic', Arial, sans-serif;
-    }
-    .header p {
-        font-size: 1.017rem;
-        color: #f6f3fa;
-        text-shadow: 0 1px 2px rgba(85,50,95,0.16);
-        opacity: 0.98;
-        font-weight: 400;
-        margin-bottom: 0;
-        letter-spacing: 0.07em;
-    }
-
-    /* ===== 콘텐츠 영역 ===== */
-    .content {
-        padding: 46px 38px 18px 38px;
-        flex: 1;
-        background: rgba(255, 255, 255, 0.7);
-        border-radius: 19px;
-        box-shadow: 0 1.5px 16px 0 rgba(81,36,78,0.06);
-    }
-
-    /* ===== 메인 환영 텍스트 ===== */
-    .main-welcome {
-        text-align: center;
-        margin-bottom: 50px;
-    }
-    .main-welcome h2 {
-        background: linear-gradient(92deg,#905ebf 20%,#f3b4d0 70%,#7451af 100%);
-        color: transparent;
-        background-clip: text;
-        -webkit-background-clip: text;
-        font-size: 2.1rem;
-        font-weight: 800;
-        margin-bottom: 15px;
-        letter-spacing: 0.04em;
-    }
-    .main-welcome p {
-        color: #61507a;
-        font-size: 1.13em;
-        line-height: 1.7;
-        font-weight: 400;
-    }
-
-    /* ===== 리소스 카드 ===== */
-    .resource-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 32px;
-        margin-top: 40px;
-    }
-    .resource-card {
-        background: linear-gradient(119deg,#ffffff 78%,#f2ecfa 100%);
-        border-radius: 17px;
-        padding: 0 30px 22px 30px;
-        text-align: center;
-        box-shadow: 0 6px 20px rgba(174, 142, 193, 0.16);
-        transition: all 0.27s cubic-bezier(.39,.58,.57,1.05);
-        text-decoration: none;
-        color: inherit;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        cursor: pointer;
-        border: 1.5px solid #dac5eb38;
-    }
-    .resource-card:hover {
-        transform: translateY(-8px) scale(1.025);
-        box-shadow: 0 13px 29px 1px rgba(142,122,217,0.16), 0 0.5px 2px rgba(0,0,0,0.02);
-        border-color: #be8ac6a0;
-    }
-    .resource-card h3 {
-        color: #854eb4;
-        font-weight: 700;
-        font-size: 1.33em;
-        margin-bottom: 12px;
-        letter-spacing: 0.04em;
-    }
-    .resource-card p {
-        color: #595963;
-        line-height: 1.65;
-        margin-bottom: 15px;
-        font-size: 1.07em;
-        letter-spacing: 0.02em;
-    }
-    .resource-badge {
-        display: inline-block;
-        background: linear-gradient(88deg,#be94e7 45%,#8a69b4 100%);
-        color: white;
-        padding: 5px 19px;
-        border-radius: 22px;
-        font-size: 0.87em;
-        font-weight: 700;
-        letter-spacing: 0.02em;
-        margin-top: 10px;
-        box-shadow: 0 2px 6px #c3a0ce21;
-    }
-    .resource-card iframe {
-        border-radius: 11px;
-        box-shadow: 0 3px 20px rgba(116,80,170,0.08);
-        border: 1.5px solid #eae0f9;
-    }
-
-    /* ===== 동영상 wrapper ===== */
-    .video-wrapper,
-    .resource-card > div[style*="padding-bottom: 56.25%"] {
-        position: relative;
-        padding-bottom: 56.25%;
-        height: 0;
-        overflow: hidden;
-        background: #000;
-        border-radius: 11px;
-        margin-top: 14px;
-    }
-    .video-wrapper iframe,
-    .resource-card > div[style*="padding-bottom: 56.25%"] > iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 11px;
-    }
-    #chatbot-card .chatbot-iframe-wrapper {
-        width: 420px;
-        max-width: 100%;
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    @media (max-width:600px) {
-        #chatbot-card .chatbot-iframe-wrapper {
-            width: 100% !important;
-            min-width: unset !important;
-        }
-    }
-    #chatbot-card .chatbot-iframe-wrapper iframe {
-        width: 100% !important;
-        min-height: 380px !important;
-        max-width: 100%;
-        display: block;
-        border-radius: 14px;
-        border: 1.5px solid #eae0f9;
-        box-shadow: 0 3px 20px rgba(116,80,170,0.08);
-        background: #000;
-    }
-
-    /* ===== 동영상 바로가기 버튼 ===== */
-    .video-link-btn {
-        display: inline-block;
-        margin-top: 10px;
-        padding: 8px 16px;
-        color: #854eb4;
-        text-decoration: none;
-        font-size: 0.9em;
-        border: 1px solid #854eb4;
-        border-radius: 5px;
-        transition: all 0.3s;
-        background: transparent;
-    }
-    .video-link-btn:hover {
-        background: #854eb4;
-        color: #fff;
-    }
-
-    /* ===== 다운로드 영역 ===== */
-    .download-section {
-        margin-top: 60px;
-        padding: 38px 24px 32px 24px;
-        background: linear-gradient(128deg,#f5f3ff 60%, #f0eaf8 100%);
-        border-radius: 15px;
-        box-shadow: 0 2px 14px 0 rgba(169,121,207,0.08);
-    }
-    .download-section h3 {
-        color: #925bb8;
-        font-size: 1.35em;
-        margin-bottom: 27px;
-        text-align: center;
-        font-weight: 700;
-        letter-spacing: 0.03em;
-    }
-    .download-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 17px;
-    }
-    .download-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 16px 22px;
-        background: white;
-        color: #854eb4;
-        text-decoration: none;
-        border-radius: 13px;
-        font-weight: 700;
-        font-size: 1.03em;
-        letter-spacing: 0.01em;
-        transition: background 0.22s, color 0.22s, transform 0.23s;
-        box-shadow: 0 1.5px 10px 0 rgba(197,155,222,0.13);
-        border: 1.2px solid #e7d2ef72;
-    }
-    .download-btn:hover {
-        background: #854eb4;
-        color: #fff;
-        transform: translateY(-3px) scale(1.045);
-        box-shadow: 0 4px 16px rgba(133,78,180,0.14);
-        border-color: #b399d9d6;
-    }
-    .download-btn::before {
-        content: "📄";
-        margin-right: 10px;
-        font-size: 1.18em;
-    }
-
-    /* ===== 푸터 영역 ===== */
-    .footer-official-link {
-        width: 100%;
-        margin-top: 53px;
-        background: rgba(56, 13, 88, 0.719);
-        padding: 30px 0 19px 0;
-        border-top: 1.5px solid #e1cfee;
-        box-shadow: 0 -3px 12px 0 #ccbbde13;
-    }
-    .extra-line-box {
-        border: 2px solid #ffffff;
-        border-radius: 5px;
-        padding: 12px;
-        background: transparent;
-    }
-    .footer-official-link-inner {
-        max-width: 950px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
-        flex-direction: column;
-    }
-    .footer-contact-info h3 {
-        font-size: 1.11rem;
-        letter-spacing: 0.01em;
-        color: #2d2d2d;
-        margin-bottom: 6px;
-        font-weight: bold;
-    }
-    .footer-contact-info a {
-        color: #652e76;
-        font-size: 1.09rem;
-        text-decoration: none;
-        font-weight: 600;
-        transition: color .18s;
-        border-bottom: 1px dashed #c1a7ce39;
-        margin: 0 8px 2px 8px;
-    }
-    .footer-contact-info a:hover {
-        color: #9157b4;
-        border-bottom: 2px solid #965174;
-        background: #eee1f65A;
-    }
-    .footer-official-logo {
-        display: flex;
-        align-items: center;
-    }
-    .footer-official-logo img {
-        height: 56px;
-        width: auto;
-        border-radius: 13px;
-        vertical-align: middle;
-        background: transparent;
-    }
-    .footer-official-logo span {
-        font-size: 1.09rem;
-        color: #522270;
-        letter-spacing: 0.03em;
-        font-weight: 600;
-        margin-left: 12px;
-    }
-    /* 방문 링크 */
-    .footer-official-logo span.visit-kukakusa-text {
-        font-size: 1em;
-        font-weight: 700;
-        color: #fff;
-        text-decoration: none !important;
-        vertical-align: middle;
-        display: inline-block;
-        letter-spacing: 0.01em;
-    }
-    .footer-official-logo span.visit-kukakusa-text::before {
-        display: none !important;
-        content: none !important;
-    }
-
-    hr {
-        width: 93%;
-        border: none;
-        border-top: 1px solid #e3dae6;
-        margin: 11px 0 13px 0;
-    }
-
-    /* ===== 반응형 ===== */
-    @media (max-width: 900px) {
-        .container { border-radius: 13px; margin-top: 20px; margin-bottom: 16px; }
-        .header-content { padding: 37px 9px 30px 13px; }
-        .content { padding-left: 11px; padding-right: 11px; }
-        .resource-card { padding: 0 16px 15px 16px; }
-        .resource-grid { gap: 17px; }
-    }
-    @media (max-width: 700px) {
-        .header-content h1, .header-content .main-title { font-size: 1.3rem !important; white-space: nowrap; }
-        .main-welcome h1 { font-size: 1.5em !important; }
-        .container { border-radius: 8px; }
-        .header { min-height: 144px; background-position: center 30%; }
-        .header-content { padding: 24px 5vw 18px 5vw; }
-        .header h1, .header-content h1 { font-size: 2.7rem; }
-        .header p { font-size: 1.017rem; letter-spacing: 0.07em; }
-        .main-welcome h2 { font-size: 1.13em; }
-        .main-welcome p { font-size: 0.98em; }
-        .content { padding: 20px 5px 13px 5px; }
-        .download-section { padding: 17px 4px 12px 4px; }
-        .resource-card { padding: 0 5px 11px 5px; }
-        .resource-card h3 { margin-bottom: 9.6px !important; }
-        .resource-card p { margin-bottom: 12px !important; line-height: 1.32 !important; }
-        .footer-official-link { border-radius: 0 0 8px 8px; background: rgba(56, 13, 88, 0.719); }
-        p { font-size: 90% !important; }
-        .footer-official-link-inner, .footer-contact-info { flex-direction: column; gap: 9px;}
-        .footer-contact-info h3 { margin-right: 0; margin-bottom: 4px; }
-    }
-    @media (max-width: 480px) {
-        .main-welcome h1 { font-size: 1.25em !important; }
-        .header { min-height: 80px; }
-        .header-content { padding: 15px 3vw 8px 3vw; }
-        .header-logo { width: 68px; height: 38px; }
-        .header h1, .header-content h1 { font-size: 2.7rem; }
-        .header p { font-size: 1.017rem; }
-        .footer-official-link-inner .footer-official-logo img { height: 33px;}
-        .resource-card h3 { margin-bottom: 9.6px !important; }
-        .resource-card p { margin-bottom: 12px !important; line-height: 1.32 !important; }
-        p { font-size: 90% !important; }
-        .footer-contact-info.contact-centered,
-        .footer-contact-info { align-items: center !important; text-align: center !important;}
-        .footer-phone-links { gap: 4px;}
-        .footer-official-logo img { height: 40px !important;}
-        .footer-official-logo span.visit-kukakusa-text { font-size: 0.7em !important;}
-    }
-
-    /* ===== 일부 카드 내 특수 스타일 ===== */
-    #video-ko-card h3,
-    #video-ko-card p,
-    #video-en-card h3,
-    #video-en-card p {
-        line-height: 1.1 !important;
-    }
-    @media (max-width:700px) {
-        #video-ko-card p, #video-en-card p, #chatbot-card p { font-size: 0.98em !important; }
-    }
-    @media (max-width:480px) {
-        #video-ko-card p, #video-en-card p, #chatbot-card p { font-size: 0.89em !important;}
-    }
-
-    /* ===== 다운로드 및 텍스트 라인 간격 ===== */
-    .resource-card h3,
-    .resource-card p,
-    .resource-badge,
-    .download-section h3,
-    .download-btn { line-height: 1.38;}
-    .resource-card p,
-    .main-welcome p,
-    .main-welcome h2 { line-height: 1.45; margin-bottom: 11px;}
-    .download-section h3 { margin-bottom: 10px; line-height: 1.25;}
-
-    /* ===== 푸터 컨택트 박스 개선 ===== */
-    .footer-contact-info {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 26px;
-        margin-bottom: 8px;
-        font-size: 1em;
-        color: #e1ecfb;
-    }
-    .footer-contact-info h3 {
-        font-size: 1.08em;
-        color: #c3e3ff;
-        margin-right: 17px;
-        margin-bottom: 0;
-        font-weight: 600;
-        letter-spacing: 0.04em;
-    }
-    .footer-contact-info a {
-        color: #f6fcff;
-        text-decoration: none;
-        font-size: .99em;
-        border-bottom: 1px dashed #36c;
-        transition: color .17s;
-    }
-    .footer-contact-info a:hover {
-        color: #50d9ff;
-    }
-    .footer-official-logo {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-top: 5px;
-        padding-top: 8px;
-        text-decoration: none;
-    }
-    .footer-official-logo img {
-        height: 42px;
-        background: none;
-        filter: brightness(1.13) drop-shadow(0 1px 7px #09235b00);
-        border-radius: 7px;
-    }
-    .footer-official-logo span {
-        color: #fff;
-        font-size: 1.09em;
-        font-weight: 500;
-        letter-spacing: 0.02em;
-        font-family: 'Noto Sans KR', 'Nanum Gothic', Arial, sans-serif;
-    }
-    .footer-contact-info.contact-centered {
-        display: flex;
-        flex-direction: column;
-        align-items: center !important;
-        justify-content: center;
-        text-align: center !important;
-        gap: 0 !important;
-        width: 100%;
-    }
-    .footer-contact-label {
-        font-size: 1.2em;
-        font-weight: 600;
-        color: #fff;
-        margin-bottom: 2px;
-        display: block;
-    }
-    .footer-phone-links {
-        display: flex;
-        gap: 18px;
-        justify-content: center;
-    }
-    .footer-phone-links a {
-        color: #e1ecfb;
-        text-decoration: none;
-        font-size: 1em;
-    }
-    .footer-phone-links a span {
-        font-weight: 500;
-    }
-    @media (max-width:700px){
-        .footer-contact-info.contact-centered { align-items: center !important; text-align: center !important;}
-        .footer-phone-links { gap: 6px; }
-        .footer-official-logo img { height: 62px !important;}
-        .footer-official-logo span.visit-kukakusa-text { font-size: 0.8em !important; }
-    }
-</style>
-
-<!-- ===============================
     HTML 영역 (HTML Section)
 ================================== -->
 <!DOCTYPE html>
@@ -560,7 +6,560 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>제12회 미주한국국악경연대회</title>
+    <title>The 12th Annual Korean Music & Arts Festival</title>
+    <!-- ===============================
+        CSS 영역 (CSS Section)
+    ================================== -->
+    <style>
+        /* ===== 구글 폰트 ===== */
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap');
+
+        /* ===== Body 기본 스타일 ===== */
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans KR', 'Nanum Gothic', 'Segoe UI', Tahoma, Geneva, Verdana, Arial, sans-serif;
+            background: linear-gradient(135deg,rgba(208,187,213,0.704) 0%, rgba(187,173,202,0.76) 20%, #f6f6fc50 100%);
+            background-attachment: fixed;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fb2aeWG%2FdJMcaajhCCb%2FAAAAAAAAAAAAAAAAAAAAAM1wTGTi0jH_-EdFLVLZq0IG4TwIPhFfjE0QTJX5XU_3%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1764514799%26allow_ip%3D%26allow_referer%3D%26signature%3Da3lg8wUVU3nKNQt%252FMOyihn9%252B%252Bvo%253D') center top/cover no-repeat;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        /* ===== 메인 컨테이너 ===== */
+        .container {
+            max-width: 1080px;
+            margin: 54px auto 44px auto;
+            border-radius: 22px;
+            box-shadow: 0 6px 48px 0 rgba(81, 36, 78, 0.13), 0 0.5px 2px rgba(0,0,0,0.04);
+            background: rgba(255,255,255, 0.752);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 92vh;
+        }
+
+        /* ===== 헤더 영역 ===== */
+        .header {
+            width: 100%;
+            min-height: 270px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            background: none;
+        }
+        .header-bg-image {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fb2aeWG%2FdJMcaajhCCb%2FAAAAAAAAAAAAAAAAAAAAAM1wTGTi0jH_-EdFLVLZq0IG4TwIPhFfjE0QTJX5XU_3%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1764514799%26allow_ip%3D%26allow_referer%3D%26signature%3Da3lg8wUVU3nKNQt%252FMOyihn9%252B%252Bvo%253D') center 45%/cover no-repeat;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg,rgba(68,53,80,0.408) 35%,rgba(181,171,206,0.304) 100%);
+            z-index: 1;
+        }
+        .header-content {
+            width: 100%;
+            z-index: 2;
+            position: relative;
+            padding: 56px 22px 44px 22px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            background: rgba(55, 13, 88, 0.438);
+        }
+        .header-content h1,
+        .header-content .main-title {
+            font-size: 2.56rem !important;
+        }
+        .header-logo {
+            width: 125px;
+            height: 70px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            box-shadow: 0 8px 28px 0 rgba(68,53,80,0.08), 0 1px 3px #b99acb24;
+            object-fit: cover;
+        }
+        .header h1 {
+            font-size: 2.7rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: #fff;
+            margin-bottom: 12px;
+            text-shadow: 0 3px 18px rgba(90,62,104,0.22), 0 2px 12px rgba(169,123,206,0.10);
+            font-family: 'Noto Sans KR', 'Nanum Gothic', Arial, sans-serif;
+        }
+        .header p {
+            font-size: 1.017rem;
+            color: #f6f3fa;
+            text-shadow: 0 1px 2px rgba(85,50,95,0.16);
+            opacity: 0.98;
+            font-weight: 400;
+            margin-bottom: 0;
+            letter-spacing: 0.07em;
+        }
+
+        /* ===== 콘텐츠 영역 ===== */
+        .content {
+            padding: 46px 38px 18px 38px;
+            flex: 1;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 19px;
+            box-shadow: 0 1.5px 16px 0 rgba(81,36,78,0.06);
+        }
+
+        /* ===== 메인 환영 텍스트 ===== */
+        .main-welcome {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .main-welcome h2 {
+            background: linear-gradient(92deg,#905ebf 20%,#f3b4d0 70%,#7451af 100%);
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            font-size: 2.1rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: 0.04em;
+        }
+        .main-welcome p {
+            color: #61507a;
+            font-size: 1.13em;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        /* ===== 리소스 카드 ===== */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+        .resource-card {
+            background: linear-gradient(119deg,#ffffff 78%,#f2ecfa 100%);
+            border-radius: 17px;
+            padding: 0 30px 22px 30px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(174, 142, 193, 0.16);
+            transition: all 0.27s cubic-bezier(.39,.58,.57,1.05);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            border: 1.5px solid #dac5eb38;
+        }
+        .resource-card:hover {
+            transform: translateY(-8px) scale(1.025);
+            box-shadow: 0 13px 29px 1px rgba(142,122,217,0.16), 0 0.5px 2px rgba(0,0,0,0.02);
+            border-color: #be8ac6a0;
+        }
+        .resource-card h3 {
+            color: #854eb4;
+            font-weight: 700;
+            font-size: 1.33em;
+            margin-bottom: 12px;
+            letter-spacing: 0.04em;
+        }
+        .resource-card p {
+            color: #595963;
+            line-height: 1.65;
+            margin-bottom: 15px;
+            font-size: 1.07em;
+            letter-spacing: 0.02em;
+        }
+        .resource-badge {
+            display: inline-block;
+            background: linear-gradient(88deg,#be94e7 45%,#8a69b4 100%);
+            color: white;
+            padding: 5px 19px;
+            border-radius: 22px;
+            font-size: 0.87em;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            margin-top: 10px;
+            box-shadow: 0 2px 6px #c3a0ce21;
+        }
+        .resource-card iframe {
+            border-radius: 11px;
+            box-shadow: 0 3px 20px rgba(116,80,170,0.08);
+            border: 1.5px solid #eae0f9;
+        }
+
+        /* ===== 동영상 wrapper ===== */
+        .video-wrapper,
+        .resource-card > div[style*="padding-bottom: 56.25%"] {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: #000;
+            border-radius: 11px;
+            margin-top: 14px;
+        }
+        .video-wrapper iframe,
+        .resource-card > div[style*="padding-bottom: 56.25%"] > iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 11px;
+        }
+        #chatbot-card .chatbot-iframe-wrapper {
+            width: 420px;
+            max-width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @media (max-width:600px) {
+            #chatbot-card .chatbot-iframe-wrapper {
+                width: 100% !important;
+                min-width: unset !important;
+            }
+        }
+        #chatbot-card .chatbot-iframe-wrapper iframe {
+            width: 100% !important;
+            min-height: 380px !important;
+            max-width: 100%;
+            display: block;
+            border-radius: 14px;
+            border: 1.5px solid #eae0f9;
+            box-shadow: 0 3px 20px rgba(116,80,170,0.08);
+            background: #000;
+        }
+
+        /* ===== 동영상 바로가기 버튼 ===== */
+        .video-link-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 16px;
+            color: #854eb4;
+            text-decoration: none;
+            font-size: 0.9em;
+            border: 1px solid #854eb4;
+            border-radius: 5px;
+            transition: all 0.3s;
+            background: transparent;
+        }
+        .video-link-btn:hover {
+            background: #854eb4;
+            color: #fff;
+        }
+
+        /* ===== 다운로드 영역 ===== */
+        .download-section {
+            margin-top: 60px;
+            padding: 38px 24px 32px 24px;
+            background: linear-gradient(128deg,#f5f3ff 60%, #f0eaf8 100%);
+            border-radius: 15px;
+            box-shadow: 0 2px 14px 0 rgba(169,121,207,0.08);
+        }
+        .download-section h3 {
+            color: #925bb8;
+            font-size: 1.35em;
+            margin-bottom: 27px;
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+        }
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 17px;
+        }
+        .download-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 22px;
+            background: white;
+            color: #854eb4;
+            text-decoration: none;
+            border-radius: 13px;
+            font-weight: 700;
+            font-size: 1.03em;
+            letter-spacing: 0.01em;
+            transition: background 0.22s, color 0.22s, transform 0.23s;
+            box-shadow: 0 1.5px 10px 0 rgba(197,155,222,0.13);
+            border: 1.2px solid #e7d2ef72;
+        }
+        .download-btn:hover {
+            background: #854eb4;
+            color: #fff;
+            transform: translateY(-3px) scale(1.045);
+            box-shadow: 0 4px 16px rgba(133,78,180,0.14);
+            border-color: #b399d9d6;
+        }
+        .download-btn::before {
+            content: "📄";
+            margin-right: 10px;
+            font-size: 1.18em;
+        }
+
+        /* ===== 푸터 영역 ===== */
+        .footer-official-link {
+            width: 100%;
+            margin-top: 53px;
+            background: rgba(56, 13, 88, 0.719);
+            padding: 30px 0 19px 0;
+            border-top: 1.5px solid #e1cfee;
+            box-shadow: 0 -3px 12px 0 #ccbbde13;
+        }
+        .extra-line-box {
+            border: 2px solid #ffffff;
+            border-radius: 5px;
+            padding: 12px;
+            background: transparent;
+        }
+        .footer-official-link-inner {
+            max-width: 950px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
+        .footer-contact-info h3 {
+            font-size: 1.11rem;
+            letter-spacing: 0.01em;
+            color: #2d2d2d;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+        .footer-contact-info a {
+            color: #652e76;
+            font-size: 1.09rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color .18s;
+            border-bottom: 1px dashed #c1a7ce39;
+            margin: 0 8px 2px 8px;
+        }
+        .footer-contact-info a:hover {
+            color: #9157b4;
+            border-bottom: 2px solid #965174;
+            background: #eee1f65A;
+        }
+        .footer-official-logo {
+            display: flex;
+            align-items: center;
+        }
+        .footer-official-logo img {
+            height: 56px;
+            width: auto;
+            border-radius: 13px;
+            vertical-align: middle;
+            background: transparent;
+        }
+        .footer-official-logo span {
+            font-size: 1.09rem;
+            color: #522270;
+            letter-spacing: 0.03em;
+            font-weight: 600;
+            margin-left: 12px;
+        }
+        /* 방문 링크 */
+        .footer-official-logo span.visit-kukakusa-text {
+            font-size: 1em;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none !important;
+            vertical-align: middle;
+            display: inline-block;
+            letter-spacing: 0.01em;
+        }
+        .footer-official-logo span.visit-kukakusa-text::before {
+            display: none !important;
+            content: none !important;
+        }
+
+        hr {
+            width: 93%;
+            border: none;
+            border-top: 1px solid #e3dae6;
+            margin: 11px 0 13px 0;
+        }
+
+        /* ===== 반응형 ===== */
+        @media (max-width: 900px) {
+            .container { border-radius: 13px; margin-top: 20px; margin-bottom: 16px; }
+            .header-content { padding: 37px 9px 30px 13px; }
+            .content { padding-left: 11px; padding-right: 11px; }
+            .resource-card { padding: 0 16px 15px 16px; }
+            .resource-grid { gap: 17px; }
+        }
+        @media (max-width: 700px) {
+            .header-content h1, .header-content .main-title { font-size: 1.3rem !important; white-space: nowrap; }
+            .main-welcome h1 { font-size: 1.5em !important; }
+            .container { border-radius: 8px; }
+            .header { min-height: 144px; background-position: center 30%; }
+            .header-content { padding: 24px 5vw 18px 5vw; }
+            .header h1, .header-content h1 { font-size: 2.7rem; }
+            .header p { font-size: 1.017rem; letter-spacing: 0.07em; }
+            .main-welcome h2 { font-size: 1.13em; }
+            .main-welcome p { font-size: 0.98em; }
+            .content { padding: 20px 5px 13px 5px; }
+            .download-section { padding: 17px 4px 12px 4px; }
+            .resource-card { padding: 0 5px 11px 5px; }
+            .resource-card h3 { margin-bottom: 9.6px !important; }
+            .resource-card p { margin-bottom: 12px !important; line-height: 1.32 !important; }
+            .footer-official-link { border-radius: 0 0 8px 8px; background: rgba(56, 13, 88, 0.719); }
+            p { font-size: 90% !important; }
+            .footer-official-link-inner, .footer-contact-info { flex-direction: column; gap: 9px;}
+            .footer-contact-info h3 { margin-right: 0; margin-bottom: 4px; }
+        }
+        @media (max-width: 480px) {
+            .main-welcome h1 { font-size: 1.25em !important; }
+            .header { min-height: 80px; }
+            .header-content { padding: 15px 3vw 8px 3vw; }
+            .header-logo { width: 68px; height: 38px; }
+            .header h1, .header-content h1 { font-size: 2.7rem; }
+            .header p { font-size: 1.017rem; }
+            .footer-official-link-inner .footer-official-logo img { height: 33px;}
+            .resource-card h3 { margin-bottom: 9.6px !important; }
+            .resource-card p { margin-bottom: 12px !important; line-height: 1.32 !important; }
+            p { font-size: 90% !important; }
+            .footer-contact-info.contact-centered,
+            .footer-contact-info { align-items: center !important; text-align: center !important;}
+            .footer-phone-links { gap: 4px;}
+            .footer-official-logo img { height: 40px !important;}
+            .footer-official-logo span.visit-kukakusa-text { font-size: 0.7em !important;}
+        }
+
+        /* ===== 일부 카드 내 특수 스타일 ===== */
+        #video-ko-card h3,
+        #video-ko-card p,
+        #video-en-card h3,
+        #video-en-card p {
+            line-height: 1.1 !important;
+        }
+        @media (max-width:700px) {
+            #video-ko-card p, #video-en-card p, #chatbot-card p { font-size: 0.98em !important; }
+        }
+        @media (max-width:480px) {
+            #video-ko-card p, #video-en-card p, #chatbot-card p { font-size: 0.89em !important;}
+        }
+
+        /* ===== 다운로드 및 텍스트 라인 간격 ===== */
+        .resource-card h3,
+        .resource-card p,
+        .resource-badge,
+        .download-section h3,
+        .download-btn { line-height: 1.38;}
+        .resource-card p,
+        .main-welcome p,
+        .main-welcome h2 { line-height: 1.45; margin-bottom: 11px;}
+        .download-section h3 { margin-bottom: 10px; line-height: 1.25;}
+
+        /* ===== 푸터 컨택트 박스 개선 ===== */
+        .footer-contact-info {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 26px;
+            margin-bottom: 8px;
+            font-size: 1em;
+            color: #e1ecfb;
+        }
+        .footer-contact-info h3 {
+            font-size: 1.08em;
+            color: #c3e3ff;
+            margin-right: 17px;
+            margin-bottom: 0;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+        }
+        .footer-contact-info a {
+            color: #f6fcff;
+            text-decoration: none;
+            font-size: .99em;
+            border-bottom: 1px dashed #36c;
+            transition: color .17s;
+        }
+        .footer-contact-info a:hover {
+            color: #50d9ff;
+        }
+        .footer-official-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 5px;
+            padding-top: 8px;
+            text-decoration: none;
+        }
+        .footer-official-logo img {
+            height: 42px;
+            background: none;
+            filter: brightness(1.13) drop-shadow(0 1px 7px #09235b00);
+            border-radius: 7px;
+        }
+        .footer-official-logo span {
+            color: #fff;
+            font-size: 1.09em;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            font-family: 'Noto Sans KR', 'Nanum Gothic', Arial, sans-serif;
+        }
+        .footer-contact-info.contact-centered {
+            display: flex;
+            flex-direction: column;
+            align-items: center !important;
+            justify-content: center;
+            text-align: center !important;
+            gap: 0 !important;
+            width: 100%;
+        }
+        .footer-contact-label {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 2px;
+            display: block;
+        }
+        .footer-phone-links {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+        }
+        .footer-phone-links a {
+            color: #e1ecfb;
+            text-decoration: none;
+            font-size: 1em;
+        }
+        .footer-phone-links a span {
+            font-weight: 500;
+        }
+        @media (max-width:700px){
+            .footer-contact-info.contact-centered { align-items: center !important; text-align: center !important;}
+            .footer-phone-links { gap: 6px; }
+            .footer-official-logo img { height: 62px !important;}
+            .footer-official-logo span.visit-kukakusa-text { font-size: 0.8em !important; }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
